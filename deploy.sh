@@ -34,7 +34,7 @@ else
     echo "Cloning repository to $TARGET_DIR..."
     sudo mkdir -p /var/www
     sudo chown -R $USER:$USER /var/www
-    git clone https://github.com/ahmadzakiyox/shoppepay-api-gateway.git $TARGET_DIR
+    git clone https://github.com/NourAnisa/API_Gateway_Shopeepay.git $TARGET_DIR
     cd $TARGET_DIR
 fi
 

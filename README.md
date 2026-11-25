@@ -3,9 +3,49 @@
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D%2018.0.0-blue.svg?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
 [![Express Framework](https://img.shields.io/badge/Express-4.18.3-lightgrey.svg?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com)
 [![Stateless Architecture](https://img.shields.io/badge/Architecture-100%25%20Stateless-brightgreen.svg?style=for-the-badge)](https://en.wikipedia.org/wiki/Stateless_protocol)
-[![License](https://img.shields.io/badge/License-Proprietary-red.svg?style=for-the-badge)](https://en.wikipedia.org/wiki/Proprietary_software)
+[![Repository](https://img.shields.io/badge/GitHub-NourAnisa%2FAPI_Gateway_Shopeepay-orange?style=for-the-badge&logo=github)](https://github.com/NourAnisa/API_Gateway_Shopeepay)
 
 API Gateway berkinerja tinggi, ringan, dan **100% Stateless (tanpa database & tanpa background polling cron)** untuk otomatisasi verifikasi mutasi transaksi ShopeePay Partner, validasi token, penarikan riwayat bulanan, serta pembuatan dynamic QRIS EMVCo secara instan.
+
+Terintegrasi penuh dengan ekosistem [OpenQRIS (openqris.jokicoding.web.id)](https://openqris.jokicoding.web.id) untuk penyelesaian pembayaran otomatis (hybrid dual settlement bersama GoBiz/GoPay).
+
+---
+
+## 🚀 Panduan Cepat & Mudah Dipahami
+
+### 1. Download & Install
+```bash
+git clone https://github.com/NourAnisa/API_Gateway_Shopeepay.git
+cd API_Gateway_Shopeepay
+npm install
+```
+
+### 2. Konfigurasi `.env`
+Salin template konfigurasi:
+```bash
+cp .env.example .env
+```
+Isi variabel di dalam `.env`:
+```env
+SHOPEE_TOKEN=B:...
+API_KEY=your_secret_api_key_here
+PORT=4000
+TELEGRAM_BOT_TOKEN=
+TELEGRAM_CHAT_ID=
+QRIS_STATIC=00020101021126610016ID.CO.SHOPEE.WWW...
+```
+
+### 3. Jalankan Gateway
+```bash
+# Pengujian lokal
+npm start
+
+# Atau dengan PM2 di server (24 Jam Non-Stop)
+pm2 start server.js --name "shoppepay-gateway"
+pm2 save
+```
+
+---
 
 ---
 
@@ -113,9 +153,9 @@ API_KEY="shopee-secret-key-2026"
 # Port server berjalan
 PORT=3001
 
-# Notifikasi peringatan (Telegram Alerts)
-TELEGRAM_BOT_TOKEN="8831336691:AAGoLvhhhy3gEq..."
-TELEGRAM_CHAT_ID="1265481161"
+# Notifikasi peringatan (Telegram Alerts) - Opsional
+TELEGRAM_BOT_TOKEN="YOUR_BOT_TOKEN_HERE"
+TELEGRAM_CHAT_ID="YOUR_CHAT_ID_HERE"
 
 # QRIS Statis Merchant Anda (untuk pembuatan QRIS dinamis)
 QRIS_STATIC="00020101021126610016ID.CO.SHOPEE.WWW0118..."
